@@ -10,3 +10,6 @@
 #SBATCH -p shared
 
 # Commands to be run:
+for size in 1kB 2kB 4kB; do
+  echo $size $(likwid-bench -t sum_sp -w N:$size:1 2> /dev/null | grep MFlops/s | cut -f 3)
+done
