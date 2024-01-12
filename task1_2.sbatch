@@ -2,7 +2,7 @@
 
 # Request resources:
 #SBATCH -c 1           # 1 CPU core
-#SBATCH --mem=1G       # memory required, up to 250G on standard nodes.
+#SBATCH --mem=2G       # memory required, up to 250G on standard nodes.
 #SBATCH --gres=tmp:1G  # temporary disk space required on the compute node ($TMPDIR), up to 400G
 #SBATCH --time=1:0:0   # time limit for job (format:  days-hours:minutes:seconds)
 
@@ -10,6 +10,6 @@
 #SBATCH -p shared
 
 # Commands to be run:
-for size in 1kB 16kB 256kB; do
+for size in 1kB 2kB 4kB; do
   echo $size $(likwid-bench -t clcopy -w N:$size:1 2> /dev/null | grep MByte/s | cut -f 3)
 done
