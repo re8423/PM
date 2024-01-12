@@ -10,6 +10,6 @@
 #SBATCH -p shared
 
 # Commands to be run:
-for size in 1kB 16kB 256kB 4mB 64mB 1gB; do
+for size in 1kB 16kB 256kB; do
   echo $size $(likwid-bench -t clcopy -w N:$size:1 2> /dev/null | grep MByte/s | cut -f 3)
 done
