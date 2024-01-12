@@ -10,5 +10,3 @@
 #SBATCH -p shared
 
 # Commands to be run:
-module load my_module
-./my_serial_program
